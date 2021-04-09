@@ -42,7 +42,7 @@
     ]
   },
   "devDependencies": {
+    "bignumber.js": "^9.0.1",
     "prop-types": "^15.7.2"
   }
 }
-

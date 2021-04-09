@@ -126,7 +126,11 @@ export default class Order extends React.Component {
       </span>
     )
   }
-
+  // renderDetailButton() {
+  //   return (
+  //       <button className="btn btn-danger btn-block">Details</button>
+  //   )
+  // }
   render() {
     const { errorMessage } = this.state
     const { order, accountAddress } = this.props
@@ -165,9 +169,13 @@ export default class Order extends React.Component {
                   ? this.renderBuyButton(!isOwner)
                   : null
                 }
+
+
               </li>
+
           }
         </ul>
+
         <div className="card-footer">
           <small className="text-muted">Posted {timeLabel}</small>
         </div>
