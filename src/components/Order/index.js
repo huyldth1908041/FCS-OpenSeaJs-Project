@@ -36,7 +36,10 @@ export default class Order extends React.Component {
     seaport: PropTypes.object.isRequired,
     accountAddress: PropTypes.string
   }
-
+  constructor(props) {
+    super(props);
+    this.handleDetail = this.handleDetail.bind(this)
+  }
   onError(error) {
     // Ideally, you'd handle this error at a higher-level component
     // using props or Redux
@@ -126,11 +129,17 @@ export default class Order extends React.Component {
       </span>
     )
   }
-  // renderDetailButton() {
-  //   return (
-  //       <button className="btn btn-danger btn-block">Details</button>
-  //   )
-  // }
+
+  renderDetailButton() {
+    return (
+        <button className="btn btn-danger btn-block" onClick={this.handleDetail}>Details</button>
+    )
+  }
+  handleDetail() {
+    this.props.toggleDetail();
+    this.props.updateOrder(this.props.order)
+
+  }
   render() {
     const { errorMessage } = this.state
     const { order, accountAddress } = this.props
@@ -170,7 +179,7 @@ export default class Order extends React.Component {
                   : null
                 }
 
-
+                {this.renderDetailButton()}
               </li>
 
           }
@@ -182,4 +191,7 @@ export default class Order extends React.Component {
       </Card>
     )
   }
+
+
+
 }

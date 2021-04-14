@@ -27,7 +27,7 @@ export default class Log extends React.Component {
         const accountAddress = this.props.accountAddress;
         if (!accountAddress) {
             await connectWallet()
-            console.log("connect wallet to get adress")
+            console.log("connect wallet to get address")
             console.log(accountAddress)
         }
         const {orders, count} = await this.props.seaport.api.getOrders({
@@ -176,7 +176,7 @@ export default class Log extends React.Component {
                     ? <React.Fragment>
                         <div className="card-deck">
                             {orders.map((order, i) => {
-                                return <Order {...this.props} key={i} order={order}/>
+                                return <Order {...this.props} key={i} order={order} toggleDetail = {this.props.toggleDetail} updateOrder={this.props.updateOrder}/>
                             })}
                         </div>
                         {this.renderPagination()}

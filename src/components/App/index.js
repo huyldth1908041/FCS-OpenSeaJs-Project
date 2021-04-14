@@ -3,12 +3,16 @@ import styled from 'styled-components';
 import Log from '../Log'
 import {OpenSeaPort, Network} from 'opensea-js';
 import {web3Provider} from '../../constants';
+import OrderDetail from "../../OrderDetail";
+import "../../OrderDetail.css"
 
 export default class App extends React.Component {
 
     state = {
         accountAddress: null,
-        seaport: null
+        seaport: null,
+        detailPage: false,
+        order: null
     }
 
     constructor(props) {
@@ -19,10 +23,20 @@ export default class App extends React.Component {
         this.state.seaport = new OpenSeaPort(web3Provider, {
             networkName: Network.Rinkeby
         })
-
+        this.toggleDetail = this.toggleDetail.bind(this);
+        this.updateOrder = this.updateOrder.bind(this);
 
     }
 
+    toggleDetail() {
+        console.log("toggle detail")
+        let isDetail = this.state.detailPage;
+        this.setState({detailPage: !isDetail})
+    }
+
+    updateOrder(order) {
+        this.setState({order: order})
+    }
 
     // onChangeAddress = () => {
     //     this.seaport = new OpenSeaPort(web3Provider, {
@@ -51,9 +65,17 @@ export default class App extends React.Component {
                     </h6>
                 </Header>
                 <main>
-                    <Log
-                        seaport={this.state.seaport}
-                        accountAddress={this.state.accountAddress}/>
+                    {this.state.detailPage ?
+                        <OrderDetail toggleDetail={this.toggleDetail} order = {this.state.order}/>
+                        :
+                        <Log
+                            seaport={this.state.seaport}
+                            accountAddress={this.state.accountAddress}
+                            toggleDetail={this.toggleDetail}
+                            updateOrder={this.updateOrder}
+                        />
+                    }
+
 
                 </main>
             </div>
