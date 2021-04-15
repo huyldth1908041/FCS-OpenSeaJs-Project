@@ -1,3 +1,76 @@
-.test {
-    background: red;
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    /*font-size: 60%;*/
+}
+
+
+/* Detail */
+.asset-container {
+    margin-top: 50px;
+}
+
+.img-container {
+    width: 100%;
+    min-height: 500px;
+    margin: 0 auto;
+
+}
+
+.asset-img {
+    display: inline-block;
+    width: 100%;
+
+}
+
+.product-detail .right .price {
+    font-size: 600;
+    font-size: 2rem;
+    color: #ff7c9c;
+    margin-bottom: 2rem;
+}
+
+.product-detail .right div {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+}
+
+.product-detail .right select {
+    font-family: "Poppins", sans-serif;
+    width: 20rem;
+    padding: 0.7rem;
+    border: 1px solid #ccc;
+    appearance: none;
+    outline: none;
+}
+
+.price {
+    font-size: 30px;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.buy-btn {
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.description {
+    margin-top: 20px;
+}
+
+.back-btn {
+    display: inline-block;
+    margin-bottom: 20px;
+    min-width: 100px;
 }

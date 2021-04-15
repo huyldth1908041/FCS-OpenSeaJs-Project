@@ -6,6 +6,7 @@ import {web3Provider} from '../../constants';
 import OrderDetail from "../../OrderDetail";
 import "../../OrderDetail.css"
 
+
 export default class App extends React.Component {
 
     state = {
